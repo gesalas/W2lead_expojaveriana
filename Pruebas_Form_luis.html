@@ -187,7 +187,7 @@
                     </div>
                 </div>
 
-                    <input type="hidden" name="00N7j000002BI3p" value="NOAP" v-if="data.tipo_asistente=='Padre de familia' || data.tipo_asistente=='Visitante PUJ' || data.tipo_asistente=='Administrativo PUJ' || data.tipo_asistente=='Acudiente'">
+                    <input type="hidden" name="00N7j000002BI3p" value="NOAP" v-if="data.tipo_asistente=='Padre de familia' || data.tipo_asistente=='Visitante PUJ' || data.tipo_asistente=='Administrativo PUJ' || data.tipo_asistente=='Acudiente || data.tipo_asistente=='Psicoorientador' || data.tipo_asistente=='Docente''">
                 
                     <!--Nivel académico-->
                     <div style="display: none;"  class="col-md-6 col-sm-12" id="nivelAcademicoRow" v-if="data.tipo_asistente!='' && 
@@ -411,7 +411,7 @@
                         tipo_asistente: "",
                         nivelacademico: "",
                         facultad: "",
-                        programa: "",
+                        programa: "NOAP",
                         colegio: "",
                         periodo_esperado: "",
                         origen_sol: "Web to Lead",
@@ -486,9 +486,8 @@
                         this.data.programa=""
                     } if (newAsis == 'Aspirante'){
                         this.data.nivelacademico = 'PREG'                  
-                    }else{// if (newAsis == 'Docente' || newAsis == 'Psicoorientador' || oldAsis == 'Docente' || oldAsis == 'Psicoorientador' || newAsis == 'Acudiente' || newAsis == 'Psicoorientador' || oldAsis == 'Acudiente' || oldAsis == 'Psicoorientador' ){
-                        this.data.programa="NOAP"
-                        this.data.nivelacademico = 'PREG'
+                    }else{// if (newAsis == 'Docente' || newAsis == 'Psicoorientador' || oldAsis == 'Docente' || oldAsis == 'Psicoorientador' || newAsis == 'Acudiente' || newAsis == 'Psicoorientador' || oldAsis == 'Acudiente' || oldAsis == 'Psicoorientador' ){ 
+                        this.data.programa="NOAP" 
                     }
                 }
             },
@@ -522,9 +521,9 @@
                         tipo_asistente: "",
                         nivelacademico: "",
                         facultad: "",
-                        programa: "",
+                        programa: "NOAP",
                         colegio: "",
-                        periodo_esperado: "",
+                        periodo_esperado: "", 
                         origen_sol: "Web to Lead",
                         fuenteAutoriza: "Landing Eventos",
                         lead: "Landing Pages",
@@ -627,22 +626,22 @@
                         });
                 },
                 filterCities() {
-            const selectedDep = this.ubicaciones.COL.departamentos.find(dep => dep.codigo === this.selectedDepartment);
-            if (selectedDep) {
-                this.cities = selectedDep.ciudades.map(ciudad => ciudad.nombre).sort();
-            } else {
-                this.cities = [];
-            }
-            this.selectedCity = ''; // Resetear la ciudad seleccionada
-            this.filterColegios(); // Actualizar la lista de colegios filtrados
-        },
-        filterColegios() {
-            this.filteredColegios = this.colegios.filter(colegio => {
-                const matchesCity = this.selectedCity ? colegio.SHIPPINGCITY === this.selectedCity : true;
-                const matchesSearch = colegio.NAME.toLowerCase().includes(this.searchTerm.toLowerCase());
-                return matchesCity && matchesSearch;
-            }).sort((a, b) => a.NAME.localeCompare(b.NAME));
-        },
+                    const selectedDep = this.ubicaciones.COL.departamentos.find(dep => dep.codigo === this.selectedDepartment);
+                    if (selectedDep) {
+                        this.cities = selectedDep.ciudades.map(ciudad => ciudad.nombre).sort();
+                    } else {
+                        this.cities = [];
+                    }
+                    this.selectedCity = ''; // Resetear la ciudad seleccionada
+                    this.filterColegios(); // Actualizar la lista de colegios filtrados
+                },
+                filterColegios() {
+                    this.filteredColegios = this.colegios.filter(colegio => {
+                        const matchesCity = this.selectedCity ? colegio.SHIPPINGCITY === this.selectedCity : true;
+                        const matchesSearch = colegio.NAME.toLowerCase().includes(this.searchTerm.toLowerCase());
+                        return matchesCity && matchesSearch;
+                    }).sort((a, b) => a.NAME.localeCompare(b.NAME));
+                },
                 deleteInvalid(field) {
                     if (this.data[field]) {
                         this.errors[field] = false;
@@ -736,13 +735,18 @@
                             break;
                             case "nivelacademico":
                             case "facultad":
-                            case "programa":
                             case "periodo_esperado":
                             if((this.data[element]=='' || this.data[element] == null)&& (this.data.tipo_asistente=='Aspirante')){
                                 valid = false;
                                 this.errors[element] = true
                             }
                             break;                            
+                            case "programa":
+                            if((this.data[element]=='' || this.data[element] == null || this.data[element]=='NOAP' )&& (this.data.tipo_asistente=='Aspirante')){
+                                valid = false;
+                                this.errors[element] = true
+                            } 
+                            break;                           
                             case "colegio":
                                 if((this.data[element]=='' || this.data[element] == null) && (this.data.tipo_asistente=='Aspirante' || this.data.tipo_asistente=='Docente' || this.data.tipo_asistente=='Psicoorientador')){
                                     valid = false;
