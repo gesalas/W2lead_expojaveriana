@@ -186,11 +186,11 @@
                         </span>
                     </div>
 
-                    <input type="hidden" name="00N7j000002BI3p" value="NOAP" v-if="data.tipo_asistente=='Padre de familia' || data.tipo_asistente=='Visitante PUJ'">
+                    <input type="hidden" name="00N7j000002BI3p" value="NOAP" v-if="data.tipo_asistente=='Padre de familia' || data.tipo_asistente=='Visitante PUJ' || data.tipo_asistente=='Administrativo PUJ' || data.tipo_asistente=='Acudiente'">
 
                     <!--Nivel académico-->
                     <div class="col-md-6 col-sm-12" id="nivelAcademicoRow" v-if="data.tipo_asistente!='' && 
-                    (data.tipo_asistente=='Aspirante' || data.tipo_asistente=='Estudiante PUJ')">
+                    (data.tipo_asistente=='Aspirante' || data.tipo_asistente=='Docente' || data.tipo_asistente=='Psicoorientador')">
                         <span class="wpcf7-form-control-wrap">
                             <select id="nivelacademico"  v-model="data.nivelacademico" v-on:change="deleteInvalid('nivelacademico')"
                                 class="form-control select validates-as-required form-select rounded-1 text-dark mb-3"
@@ -198,6 +198,23 @@
                                 <option value="PREG">Pregrado</option>
                             </select>
                             <div class="error_text" v-show="errors.nivelacademico">
+                                Selecciona
+                            </div>
+                        </span>
+                    </div>
+                </div>
+
+                <!--Colegio-->
+                <div class="form-row col-12">
+                    <div class="col-md-6 col-sm-12" id="colegioRow" v-if="data.tipo_asistente!='' && 
+                    (data.tipo_asistente=='Aspirante' || data.tipo_asistente=='Docente' || data.tipo_asistente=='Psicoorientador')">
+                        <span class="wpcf7-form-control-wrap">
+                            <select id="00NO4000005begL"  v-model="data.colegio" v-on:change="deleteInvalid('colegio')"
+                                class="form-control select validates-as-required form-select rounded-1 text-dark mb-3"
+                                name="00NO4000005begL" :class="{ error: errors.colegio }">
+                                <option value="">Colegio</option>
+                            </select>
+                            <div class="error_text" v-show="errors.colegio">
                                 Selecciona
                             </div>
                         </span>
