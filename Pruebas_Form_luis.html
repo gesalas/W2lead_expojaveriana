@@ -187,8 +187,7 @@
                     </div>
                 </div>
 
-                    <input type="hidden" name="00N7j000002BI3p" value="NOAP" v-if="data.tipo_asistente!='' && 
-                    (data.tipo_asistente=='Padre de familia' || data.tipo_asistente=='Visitante PUJ' || data.tipo_asistente=='Administrativo PUJ' || data.tipo_asistente=='Acudiente')">
+                    <input type="hidden" name="00N7j000002BI3p" value="NOAP" v-if="data.tipo_asistente=='Padre de familia' || data.tipo_asistente=='Visitante PUJ' || data.tipo_asistente=='Administrativo PUJ' || data.tipo_asistente=='Acudiente'">
                 
                     <!--Nivel académico-->
                     <div style="display: none;"  class="col-md-6 col-sm-12" id="nivelAcademicoRow" v-if="data.tipo_asistente!='' && 
@@ -245,7 +244,8 @@
 
 
                 <!--Facultad-->
-                <div class="form-row col-12" v-if="data.nivelacademico!=''">
+                <div class="form-row col-12" v-if="data.nivelacademico!=''&& 
+                (data.tipo_asistente=='Aspirante')">
                     <div class="col-12">
                         <span class="wpcf7-form-control-wrap">
                             <select id="Facultad" v-model="data.facultad" v-on:change="deleteInvalid('facultad')"
@@ -414,7 +414,7 @@
                         programa: "",
                         colegio: "",
                         periodo_esperado: "",
-                        origen_sol: "w2lead_expo",
+                        origen_sol: "Web to Lead",
                         fuenteAutoriza: "Landing Eventos",
                         lead: "Landing Pages",
                         company: "NA",
@@ -486,8 +486,9 @@
                         this.data.programa=""
                     } if (newAsis == 'Aspirante'){
                         this.data.nivelacademico = 'PREG'                  
-                    } if (newAsis == 'Docente' || newAsis == 'Psicoorientador' ){
+                    }else{// if (newAsis == 'Docente' || newAsis == 'Psicoorientador' || oldAsis == 'Docente' || oldAsis == 'Psicoorientador' || newAsis == 'Acudiente' || newAsis == 'Psicoorientador' || oldAsis == 'Acudiente' || oldAsis == 'Psicoorientador' ){
                         this.data.programa="NOAP"
+                        this.data.nivelacademico = 'PREG'
                     }
                 }
             },
@@ -524,7 +525,7 @@
                         programa: "",
                         colegio: "",
                         periodo_esperado: "",
-                        origen_sol: "w2lead_expo",
+                        origen_sol: "Web to Lead",
                         fuenteAutoriza: "Landing Eventos",
                         lead: "Landing Pages",
                         company: "NA",
@@ -736,18 +737,19 @@
                             case "nivelacademico":
                             case "facultad":
                             case "programa":
-                            case "Colegio":
-                                if((this.data[element]=='' || this.data[element] == null) && (this.data.tipo_asistente=='Aspirante' || this.data.tipo_asistente=='Docente' || this.data.tipo_asistente=='Psicoorientador')){
-                                    valid = false;
-                                    this.errors[element] = true
-                                }
-                            break;     
                             case "periodo_esperado":
                             if((this.data[element]=='' || this.data[element] == null)&& (this.data.tipo_asistente=='Aspirante')){
                                 valid = false;
                                 this.errors[element] = true
                             }
-                            break;
+                            break;                            
+                            case "colegio":
+                                if((this.data[element]=='' || this.data[element] == null) && (this.data.tipo_asistente=='Aspirante' || this.data.tipo_asistente=='Docente' || this.data.tipo_asistente=='Psicoorientador')){
+                                    valid = false;
+                                    this.errors[element] = true
+                                }
+                            break;     
+                            
 
                             default:
                             break;
