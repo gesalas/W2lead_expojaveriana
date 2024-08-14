@@ -497,7 +497,8 @@
                  * Funcion para cargar los programas
                  **/
                 getProgramas() {
-                    axios.get('https://www.javeriana.edu.co/recursosdb/1372208/10609114/programas.json/763c6e09-7714-08f0-e639-24a6db5d3750')
+                   axios.get(' https://raw.githubusercontent.com/gesalas/W2lead_expojaveriana/main/Json/programas.json')
+                    //axios.get('https://www.javeriana.edu.co/recursosdb/1372208/10609114/programas.json/763c6e09-7714-08f0-e639-24a6db5d3750')
                         .then((response) => {
                             this.programas = response.data
                         })
@@ -509,7 +510,8 @@
                  * Funcion para cargar los periodos
                  **/
                 getPeriodos() {
-                    axios.get('https://www.javeriana.edu.co/recursosdb/1372208/10609114/periodos.json/d4112f99-7175-becd-5fdf-81f7c2c8527c')
+                    axios.get('https://raw.githubusercontent.com/gesalas/W2lead_expojaveriana/main/Json/periodos.json')
+                    //axios.get('https://www.javeriana.edu.co/recursosdb/1372208/10609114/periodos.json/d4112f99-7175-becd-5fdf-81f7c2c8527c')
                         .then((response) => {
                             this.periodos = response.data
                         })
@@ -521,7 +523,8 @@
                  * Funcion para cargar las ubicaciones
                  **/
                 getUbicaciones() {
-                    axios.get('https://www.javeriana.edu.co/recursosdb/1372208/10609114/ubicaciones.json/42eea925-0d5b-f9b9-e17d-fb7ca71a69ad')
+                    axios.get('https://raw.githubusercontent.com/gesalas/W2lead_expojaveriana/main/Json/ubicaciones.json')
+                    //axios.get('https://www.javeriana.edu.co/recursosdb/1372208/10609114/ubicaciones.json/42eea925-0d5b-f9b9-e17d-fb7ca71a69ad')
                         .then((response) => {
                             this.ubicaciones = response.data
                         })
