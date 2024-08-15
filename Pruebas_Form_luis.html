@@ -5,12 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pruebas Formulario</title>
-    <link rel="stylesheet" href="styles.css">
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
-<body style="background-color: #ddf0ff; padding:100px;">
+<body style="background-color: #2c5697; padding:7px; border-radius: 3px;">
+    <style>
+        input{
+            border: solid #f8cd00 !important;
+        }
+        select{
+            border: solid #f8cd00 !important;
+        }
+
+        h5{
+            text-align: left !important;
+            color: #f8cd00;;
+        }
+
+        .subtitulo{
+            color: #fff;
+            font-weight: 400;
+            font-size: 15px;
+        }
+
+        .colegio{
+            background-color: #2b5088;
+        }
+
+        .error_text{
+            color: #f88d00 !important;
+            font-size: 12px !important;
+        }
+    </style>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <div id="app">
@@ -19,7 +47,7 @@
             style="background-color: rgba(var(--bs-light-rgb), 0.8) !important;">
             <div class="form-row justify-content-center align-items-center mb-3 mx-2">
                 <div class="col">
-                    <h3 class="d-block fs-4 text-azul fw-bold text-center text-uppercase">Inscríbete aquí</h3>
+                    <h3 class="d-block fs-4 text-azul fw-bold text-center text-uppercase" style="color: #f8cd00;">Inscríbete aquí</h3>
                 </div>
             </div>
             <form id="form_SF" ref='form_SF' v-on:submit.prevent="validateForm"
@@ -168,7 +196,7 @@
                     <div class="col-md-12 col-sm-12">
                         <span class="wpcf7-form-control-wrap">
                             <select v-model="data.tipo_asistente" v-on:change="deleteInvalid('tipo_asistente')"
-                                class="form-control select validates-as-required form-select rounded-1 text-dark "
+                                class="form-control select validates-as-required form-select border-top-0 border-left-0 border-right-0 rounded-1 text-dark "
                                 name="00NO40000000sTR" id="00NO40000000sTR" required
                                 :class="{ error: errors.tipo_asistente }">
                                 <option value="">*Tipo de asistente</option>
@@ -205,31 +233,31 @@
                     </div>
 
                     <!--Colegio-->
-                    <div class="form-row col-12">
+                    <div class="form-row col-12 colegio">
                         <div class="form-group col-md-12 col-sm-12" id="colegioRow" v-if="data.tipo_asistente!='' && 
                             (data.tipo_asistente=='Aspirante' || data.tipo_asistente=='Docente' || data.tipo_asistente=='Psicoorientador')">
-                            <h5><br>Selecciona tu colegio:<br> Puedes filtrar por ciudad/departamento o escribir una palabra clave<br></h5>
+                            <h5><br>Selecciona tu colegio:<br> <span class="subtitulo"> Puedes filtrar por ciudad/departamento o escribir una palabra clave<br></span></h5>
                     
                             <div class="form-row col-12"> 
                                 <!-- Select de Departamento -->
-                                <select v-model="selectedDepartment" @change="filterCities" class="form-control select form-select rounded-1 text-dark mb-3 col-6">
+                                <select v-model="selectedDepartment" @change="filterCities" class="form-control select form-select border-top-0 border-left-0 border-bottom-0 border-right-1 rounded-1 text-dark mb-3 col-6">
                                     <option value="">Filtrar por Departamento</option>
                                     <option v-for="dep in departments" :key="dep.codigo" :value="dep.codigo">{{ dep.nombre }}</option>
                                 </select>
                     
                                 <!-- Select de Ciudad filtrado por Departamento -->
-                                <select v-model="selectedCity" @change="filterColegios" class="form-control select form-select rounded-1 text-dark mb-3 col-6">
+                                <select v-model="selectedCity" @change="filterColegios" class="form-control select form-select border-top-0 border-left-1 border-bottom-0 border-right-0 rounded-1 text-dark mb-3 col-6">
                                     <option value="">Filtrar por Ciudad</option>
                                     <option v-for="city in cities" :key="city" :value="city">{{ city }}</option>
                                 </select>
                             </div>
                     
-                            <div class="form-group col-12">
+                            <div class="form-row  col-12">
                                 <!-- Select con los colegios filtrados por Ciudad -->
-                                <input type="text" v-model="searchTerm" @input="filterColegios" placeholder="Filtrar por nombre o palabra clave" class="form-control mb-3" />
+                                <input type="text" v-model="searchTerm" @input="filterColegios" placeholder="Filtrar por nombre o palabra clave" class="form-control border-top-0 border-left-0 border-bottom-0 border-right-0 rounded-1 mb-3" />
                     
                                 <select id="00NO4000005begL" v-model="data.colegio" @change="deleteInvalid('colegio')"
-                                    class="form-control select validates-as-required form-select rounded-1 text-dark mb-3 col-12"
+                                    class="form-control select validates-as-required form-select border-top-0 border-left-0 border-right-0 rounded-1 text-dark mb-3 col-12"
                                     name="00NO4000005begL" :class="{ error: errors.colegio }" placeholder="Selecciona un colegio">
                                     <option value="">Seleccionar Colegio</option>
                                     <option v-for="colegio in filteredColegios" :key="colegio.ID" :value="colegio.PUJ_EXTERNALORGID__C">
@@ -246,10 +274,11 @@
                 <!--Facultad-->
                 <div class="form-row col-12" v-if="data.nivelacademico!=''&& 
                 (data.tipo_asistente=='Aspirante')">
+                <h5 style="text-align: center;"><br>¿En cuál programa estás interesado?<br></h5>
                     <div class="col-12">
                         <span class="wpcf7-form-control-wrap">
                             <select id="Facultad" v-model="data.facultad" v-on:change="deleteInvalid('facultad')"
-                                class="form-control select validates-as-required form-select rounded-1 text-dark  mb-3"
+                                class="form-control select validates-as-required form-select border-top-0 border-left-0 border-right-0 rounded-1 text-dark  mb-3"
                                 name="Facultad" :class="{ error: errors.facultad }">
                                 <option value="" >*Selecciona la facultad</option>
                                 <option v-for="item in programas[data.nivelacademico]"
@@ -310,7 +339,7 @@
 
                         Fuente autorización datos personales:<select id="00N7j000002BY26" name="00N7j000002BY26"
                             v-model="data.fuenteAutoriza" title="Fuente autorización datos personales">
-                            <option value="Landing Eventos">Landing Eventos</option>
+                            <option value="Landing Expojaveriana">Landing Expojaveriana</option>
                         </select>
                         <label for="lead_source">Origen del candidato</label>
                         <select id="lead_source" v-model="data.lead" name="lead_source">
@@ -336,24 +365,24 @@
                 <!--Legales y botón de inscripción-->
                 <div class="form-row col-12 mb-3">
                     <div class="col-12">
-                        <span class="d-block text-azul">¿Autoriza usted el tratamiento de sus datos personales de
+                        <span class="d-block text-azul" style="color: #fff;">¿Autoriza usted el tratamiento de sus datos personales de
                             acuerdo con la <a
                                 href="https://javeriana.ingresouniversitario.com/wp-content/uploads/2023/09/autorizacion-de-privacidad.pdf"
                                 class=" text-azul fw-medium text-decoration-underline" target="_blank"
-                                download="">autorización de privacidad</a>?</span>
+                                download="" style="color: #f8cd00;">autorización de privacidad</a>?</span>
                         <div class="form-check form-check-inline">
                             <input v-on:change="validateAutoriza()" class="form-check-input" type="radio"
                                 v-model="data.autoriza" id="00N7j000002BI3m" name="00N7j000002BI3m" value="1">
-                            <label class="form-check-label text-azul" for="00N7j000002BI3m">Sí</label><br>
+                            <label class="form-check-label text-azul" for="00N7j000002BI3m"style="color: #fff;">Sí</label><br>
                         </div>
                         <div class="form-check form-check-inline">
                             <input v-on:change="validateAutoriza()" class="form-check-input" type="radio"
                                 v-model="data.autoriza" name="00N7j000002BI3m" id="00N7j000002BI3m" value="0">
-                            <label class="form-check-label text-azul" for="autorizacion-2">No</label>
+                            <label class="form-check-label text-azul" for="autorizacion-2" style="color: #fff;">No</label>
                         </div>
                     </div>
                     <div class="col-md-12" id="autorizacionErrorMessage" v-show="errors.autoriza">
-                        <p style="color: brown; font-size:0.8rem;">La Pontificia Universidad Javeriana requiere de su
+                        <p style="color: rgb(218, 186, 8); font-size:0.8rem;">La Pontificia Universidad Javeriana requiere de su
                             autorización para el tratamiento de sus datos personales para continuar con el presente
                             proceso, sin la autorización legalmente no podemos darle continuidad al mismo</p>
                     </div>
@@ -415,7 +444,7 @@
                         colegio: "",
                         periodo_esperado: "",
                         origen_sol: "Web to Lead",
-                        fuenteAutoriza: "Landing Eventos",
+                        fuenteAutoriza: "Landing Expojaveriana",
                         lead: "Landing Pages",
                         company: "NA",
                         fuente: "",
@@ -525,7 +554,7 @@
                         colegio: "",
                         periodo_esperado: "", 
                         origen_sol: "Web to Lead",
-                        fuenteAutoriza: "Landing Eventos",
+                        fuenteAutoriza: "Landing Expojaveriana",
                         lead: "Landing Pages",
                         company: "NA",
                         fuente: "",
