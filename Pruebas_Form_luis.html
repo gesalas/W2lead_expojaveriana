@@ -334,7 +334,7 @@
                     <div class="form-row">
                         Origen de la Solicitud:<select id="00NO40000002ZeP" name="00NO40000002ZeP"
                             v-model="data.origen_sol" title="Origen de la Solicitud">
-                            <option selected value="Web to Lead">Web to Lead</option>
+                            <option selected value="web_to_lead_expojaveriana">Web to Lead</option>
                         </select>
 
                         Fuente autorización datos personales:<select id="00N7j000002BY26" name="00N7j000002BY26"
@@ -443,14 +443,14 @@
                         programa: "NOAP",
                         colegio: "",
                         periodo_esperado: "",
-                        origen_sol: "Web to Lead",
+                        origen_sol: "web_to_lead_expojaveriana",
                         fuenteAutoriza: "Landing Expojaveriana",
                         lead: "Landing Pages",
                         company: "NA",
-                        fuente: "",
-                        subfuente: "",
-                        medio: "",
-                        campana: "",
+                        fuente: "Javeriana",
+                        subfuente: "Organico",
+                        medio: "Landing",
+                        campana: "expojaveriana_preg_2025_10",
                         autoriza: "",
                         programNoap:""
                     },
@@ -553,14 +553,14 @@
                         programa: "NOAP",
                         colegio: "",
                         periodo_esperado: "", 
-                        origen_sol: "Web to Lead",
+                        origen_sol: "web_to_lead_expojaveriana",
                         fuenteAutoriza: "Landing Expojaveriana",
                         lead: "Landing Pages",
                         company: "NA",
-                        fuente: "",
-                        subfuente: "",
-                        medio: "",
-                        campana: "",
+                        fuente: "Javeriana",
+                        subfuente: "Organico",
+                        medio: "Landing",
+                        campana: "expojaveriana_preg_2025_10",
                         autoriza: "",
                         programNoap:""
                     }
@@ -570,10 +570,10 @@
                  **/  
                 getParametersGet(){
                     let urlParams = new URLSearchParams(window.location.search);
-                    this.data.fuente  = (urlParams.has('utm_source'))?urlParams.get('utm_source'):"";
-                    this.data.subfuente= (urlParams.has('utm_subsource'))?urlParams.get('utm_subsource'):""; 
-                    this.data.medio = (urlParams.has('utm_medium'))?urlParams.get('utm_medium'):""; 
-                    this.data.campana = (urlParams.has('utm_campaign'))?urlParams.get('utm_campaign'):"";  
+                    this.data.fuente  = (urlParams.has('utm_source'))?urlParams.get('utm_source'):"Javeriana";
+                    this.data.subfuente= (urlParams.has('utm_subsource'))?urlParams.get('utm_subsource'):"Organico"; 
+                    this.data.medio = (urlParams.has('utm_medium'))?urlParams.get('utm_medium'):"Landing"; 
+                    this.data.campana = (urlParams.has('utm_campaign'))?urlParams.get('utm_campaign'):"expojaveriana_preg_2025_10";  
                 },
                 /**
                  * Funcion para cargar los programas
