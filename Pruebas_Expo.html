@@ -606,6 +606,7 @@
                  **/
                  getUbicaciones() {
                     axios.get('https://raw.githubusercontent.com/gesalas/W2lead_expojaveriana/main/Json/ubicaciones.json')
+                    //axios.get('https://www.javeriana.edu.co/recursosdb/1372208/10609114/ubicaciones.json/42eea925-0d5b-f9b9-e17d-fb7ca71a69ad')
                         .then((response) => {
                             this.ubicaciones = response.data;
 
