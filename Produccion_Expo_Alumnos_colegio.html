@@ -203,10 +203,8 @@
                                 <option value="Aspirante">Aspirante</option>
                                 <option value="Acudiente">Acudiente</option>
                                 <option value="Padre de familia">Padre de familia</option>
-                                <option value="Visitante PUJ">Visitante PUJ</option>
                                 <option value="Docente">Docente</option>
                                 <option value="Psicoorientador">Psicoorientador</option>
-                                <option value="Administrativo PUJ">Administrativo PUJ</option>
                             </select>
                             <div class="error_text" v-show="errors.tipo_asistente">
                                 Selecciona
@@ -443,14 +441,14 @@
                         programa: "NOAP",
                         colegio: "",
                         periodo_esperado: "",
-                        origen_sol: "web_to_lead_expojaveriana",
+                        origen_sol: "expo_estudiante_col",
                         fuenteAutoriza: "Landing Expojaveriana",
                         lead: "Landing Pages",
                         company: "NA",
                         fuente: "Javeriana",
                         subfuente: "Organico",
                         medio: "Landing",
-                        campana: "expojaveriana_preg_2025_10",
+                        campana: "Expojaveriana",
                         autoriza: "",
                         programNoap:""
                     },
@@ -553,14 +551,14 @@
                         programa: "NOAP",
                         colegio: "",
                         periodo_esperado: "", 
-                        origen_sol: "web_to_lead_expojaveriana",
+                        origen_sol: "expo_estudiante_col",
                         fuenteAutoriza: "Landing Expojaveriana",
                         lead: "Landing Pages",
                         company: "NA",
                         fuente: "Javeriana",
                         subfuente: "Organico",
                         medio: "Landing",
-                        campana: "expojaveriana_preg_2025_10",
+                        campana: "Expojaveriana",
                         autoriza: "",
                         programNoap:""
                     }
@@ -573,7 +571,7 @@
                     this.data.fuente  = (urlParams.has('utm_source'))?urlParams.get('utm_source'):"Javeriana";
                     this.data.subfuente= (urlParams.has('utm_subsource'))?urlParams.get('utm_subsource'):"Organico"; 
                     this.data.medio = (urlParams.has('utm_medium'))?urlParams.get('utm_medium'):"Landing"; 
-                    this.data.campana = (urlParams.has('utm_campaign'))?urlParams.get('utm_campaign'):"expojaveriana_preg_2025_10";  
+                    this.data.campana = (urlParams.has('utm_campaign'))?urlParams.get('utm_campaign'):"Expojaveriana";  
                 },
                 /**
                  * Funcion para cargar los programas

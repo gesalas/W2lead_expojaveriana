@@ -200,13 +200,8 @@
                                 name="00NJw000001J3g6" id="00NJw000001J3g6" required
                                 :class="{ error: errors.tipo_asistente }">
                                 <option value="">*Tipo de asistente</option>
-                                <option value="Aspirante">Aspirante</option>
                                 <option value="Acudiente">Acudiente</option>
                                 <option value="Padre de familia">Padre de familia</option>
-                                <option value="Visitante PUJ">Visitante PUJ</option>
-                                <option value="Docente">Docente</option>
-                                <option value="Psicoorientador">Psicoorientador</option>
-                                <option value="Administrativo PUJ">Administrativo PUJ</option>
                             </select>
                             <div class="error_text" v-show="errors.tipo_asistente">
                                 Selecciona
@@ -334,7 +329,7 @@
                     <div class="form-row">
                         Origen de la Solicitud:<select id="00NJw000001J3Hl" name="00NJw000001J3Hl"
                             v-model="data.origen_sol" title="Origen de la Solicitud">
-                            <option selected value="expo_estudiante_col">Web to Lead</option>
+                            <option selected value="expo_padres_familia">Web to Lead</option>
                         </select>
 
                         Fuente autorización datos personales:<select id="00N5G00000WmhvT" name="00N5G00000WmhvT"
@@ -443,7 +438,7 @@
                         programa: "NOAP",
                         colegio: "",
                         periodo_esperado: "",
-                        origen_sol: "web_to_lead_expojaveriana",
+                        origen_sol: "expo_padres_familia",
                         fuenteAutoriza: "Landing Expojaveriana",
                         lead: "Landing Pages",
                         company: "NA",
@@ -553,7 +548,7 @@
                         programa: "NOAP",
                         colegio: "",
                         periodo_esperado: "", 
-                        origen_sol: "web_to_lead_expojaveriana",
+                        origen_sol: "expo_padres_familia",
                         fuenteAutoriza: "Landing Expojaveriana",
                         lead: "Landing Pages",
                         company: "NA",
