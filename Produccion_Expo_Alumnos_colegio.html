@@ -200,9 +200,7 @@
                                 name="00NJw000001J3g6" id="00NJw000001J3g6" required
                                 :class="{ error: errors.tipo_asistente }">
                                 <option value="">*Tipo de asistente</option>
-                                <option value="Aspirante">Aspirante</option>
-                                <option value="Acudiente">Acudiente</option>
-                                <option value="Padre de familia">Padre de familia</option>
+                                <option value="Aspirante">Aspirante</option>                                
                                 <option value="Docente">Docente</option>
                                 <option value="Psicoorientador">Psicoorientador</option>
                             </select>
@@ -448,7 +446,7 @@
                         fuente: "Javeriana",
                         subfuente: "Organico",
                         medio: "Landing",
-                        campana: "Expojaveriana",
+                        campana: "expojaveriana_preg_2025_10",
                         autoriza: "",
                         programNoap:""
                     },
@@ -558,7 +556,7 @@
                         fuente: "Javeriana",
                         subfuente: "Organico",
                         medio: "Landing",
-                        campana: "Expojaveriana",
+                        campana: "expojaveriana_preg_2025_10",
                         autoriza: "",
                         programNoap:""
                     }
@@ -571,7 +569,7 @@
                     this.data.fuente  = (urlParams.has('utm_source'))?urlParams.get('utm_source'):"Javeriana";
                     this.data.subfuente= (urlParams.has('utm_subsource'))?urlParams.get('utm_subsource'):"Organico"; 
                     this.data.medio = (urlParams.has('utm_medium'))?urlParams.get('utm_medium'):"Landing"; 
-                    this.data.campana = (urlParams.has('utm_campaign'))?urlParams.get('utm_campaign'):"Expojaveriana";  
+                    this.data.campana = (urlParams.has('utm_campaign'))?urlParams.get('utm_campaign'):"expojaveriana_preg_2025_10";  
                 },
                 /**
                  * Funcion para cargar los programas
