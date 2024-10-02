@@ -1318,6 +1318,9 @@
         "ALB": {
                 "nombre": "Albania"
         },
+        "DEU": {
+                "nombre": "Alemania"
+        },
         "DZA": {
                 "nombre": "Algeria"
         },
@@ -1337,7 +1340,7 @@
                 "nombre": "Antarctica"
         },
         "ATG": {
-                "nombre": "Antigua and Barbuda"
+                "nombre": "Antigua y Barbuda"
         },
         "ARG": {
                 "nombre": "Argentina"
@@ -1394,7 +1397,7 @@
                 "nombre": "Bonaire, Sint Eustatius & Saba"
         },
         "BIH": {
-                "nombre": "Bosnia and Herzegovina"
+                "nombre": "Bosnia y Herzegovina"
         },
         "BWA": {
                 "nombre": "Botswana"
@@ -1403,7 +1406,7 @@
                 "nombre": "Bouvet Island"
         },
         "BRA": {
-                "nombre": "Brazil"
+                "nombre": "Brasil"
         },
         "IOT": {
                 "nombre": "British Indian Ocean Territory"
@@ -1566,9 +1569,6 @@
         },
         "GEO": {
                 "nombre": "Georgia"
-        },
-        "DEU": {
-                "nombre": "Germany"
         },
         "GHA": {
                 "nombre": "Ghana"
