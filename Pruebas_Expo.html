@@ -203,12 +203,10 @@
                                 :class="{ error: errors.tipo_asistente }">
                                 <option value="">*Tipo de asistente</option>
                                 <option value="Aspirante">Aspirante</option>
-                                <option value="Acudiente">Acudiente</option>
-                                <option value="Padre de familia">Padre de familia</option>
-                                <option value="Visitante PUJ">Visitante PUJ</option>
-                                <option value="Docente">Docente</option>
-                                <option value="Psicoorientador">Psicoorientador</option>
-                                <option value="Administrativo PUJ">Administrativo PUJ</option>
+                                <option value="Padre de familia y/o acudiente">Padre de familia y/o acudiente</option>
+                                <option value="Docente y/o psicoorientador">Docente y/o psicoorientador</option>
+                                <!-- <option value="Visitante PUJ">Visitante PUJ</option>
+                                <option value="Administrativo PUJ">Administrativo PUJ</option> -->
                             </select>
                             <div class="error_text" v-show="errors.tipo_asistente">
                                 Selecciona
@@ -217,7 +215,7 @@
                     </div>
                 </div>
 
-                    <input type="hidden" name="00N7j000002BI3p" value="NOAP" v-if="data.tipo_asistente=='Padre de familia' || data.tipo_asistente=='Visitante PUJ' || data.tipo_asistente=='Administrativo PUJ' || data.tipo_asistente=='Acudiente' || data.tipo_asistente=='Psicoorientador' || data.tipo_asistente=='Docente'">
+                    <input type="hidden" name="00N7j000002BI3p" value="NOAP" v-if="data.tipo_asistente=='Padre de familia y/o acudiente' || data.tipo_asistente=='Visitante PUJ' || data.tipo_asistente=='Administrativo PUJ' || data.tipo_asistente=='Docente y/o psicoorientador'">
                 
                     <!--Nivel académico-->
                     <div style="display: none;"  class="col-md-6 col-sm-12" id="nivelAcademicoRow" v-if="data.tipo_asistente!='' && 
@@ -237,7 +235,7 @@
                     <!--Colegio-->
                     <div class="form-row col-12 colegio">
                         <div class="form-group col-md-12 col-sm-12" id="colegioRow" v-if="data.tipo_asistente!='' && 
-                            (data.tipo_asistente=='Aspirante' || data.tipo_asistente=='Docente' || data.tipo_asistente=='Psicoorientador')">
+                            (data.tipo_asistente=='Aspirante' || data.tipo_asistente=='Docente y/o psicoorientador')">
                             
                             <h5><br>Selecciona tu colegio:<br> 
                               <span class="subtitulo"> Puedes filtrar por ciudad/departamento o escribir una palabra clave<br></span>
@@ -530,7 +528,7 @@
                         this.selectedCity = ""
                     } if (newAsis == 'Aspirante'){
                         this.data.nivelacademico = 'PREG'                 
-                    } else{// if (newAsis == 'Docente' || newAsis == 'Psicoorientador'  || newAsis == 'Acudiente' || newAsis == 'Psicoorientador'){ 
+                    } else{// if (newAsis == 'Docente y/o psicoorientador'){ 
                         this.data.programa="NOAP" 
                     }
                 }
@@ -836,7 +834,7 @@
                             } 
                             break;                           
                             case "colegio":
-                                if((this.data[element]=='' || this.data[element] == null) && (this.data.tipo_asistente=='Aspirante' || this.data.tipo_asistente=='Docente' || this.data.tipo_asistente=='Psicoorientador')){
+                                if((this.data[element]=='' || this.data[element] == null) && (this.data.tipo_asistente=='Aspirante' || this.data.tipo_asistente=='Docente y/o psicoorientador')){
                                     valid = false;
                                     this.errors[element] = true
                                 }
