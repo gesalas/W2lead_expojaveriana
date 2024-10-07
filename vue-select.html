@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue 3 Select Example</title>
+  <!-- CDN Vue 3 -->
+  <script src="https://unpkg.com/vue@next"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    select {
+      width: 200px;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h2>Select an option:</h2>
+    <select v-model="selectedOption">
+      <option v-for="option in options" :key="option.id" :value="option.value">
+        {{ option.text }}
+      </option>
+    </select>
+
+    <p>Selected: {{ selectedOption }}</p>
+  </div>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          selectedOption: '',
+          options: [
+            { id: 1, value: 'option1', text: 'Option 1' },
+            { id: 2, value: 'option2', text: 'Option 2' },
+            { id: 3, value: 'option3', text: 'Option 3' }
+          ]
+        };
+      }
+    });
+
+    app.mount('#app');
+  </script>
+</body>
+</html>
