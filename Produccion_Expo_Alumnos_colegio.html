@@ -202,9 +202,8 @@
                                 name="00NJw000001J3g6" id="00NJw000001J3g6" required
                                 :class="{ error: errors.tipo_asistente }">
                                 <option value="">*Tipo de asistente</option>
-                                <option value="Aspirante">Aspirante</option>                                
-                                <option value="Docente">Docente</option>
-                                <option value="Psicoorientador">Psicoorientador</option>
+                                <option value="Aspirante">Aspirante</option>
+                                <option value="Docente y/o psicoorientador">Docente y/o psicoorientador</option>
                             </select>
                             <div class="error_text" v-show="errors.tipo_asistente">
                                 Selecciona
@@ -213,7 +212,7 @@
                     </div>
                 </div>
 
-                    <input type="hidden" name="00N5G00000WmhvV" value="NOAP" v-if="data.tipo_asistente=='Padre de familia' || data.tipo_asistente=='Visitante PUJ' || data.tipo_asistente=='Administrativo PUJ' || data.tipo_asistente=='Acudiente' || data.tipo_asistente=='Psicoorientador' || data.tipo_asistente=='Docente'">
+                    <input type="hidden" name="00N5G00000WmhvV" value="NOAP" v-if="data.tipo_asistente=='Padre de familia y/o acudiente' || data.tipo_asistente=='Docente y/o psicoorientador' || data.tipo_asistente=='Administrativo PUJ'">
                 
                     <!--Nivel académico-->
                     <div style="display: none;"  class="col-md-6 col-sm-12" id="nivelAcademicoRow" v-if="data.tipo_asistente!='' && 
@@ -233,39 +232,50 @@
                     <!--Colegio-->
                     <div class="form-row col-12 colegio">
                         <div class="form-group col-md-12 col-sm-12" id="colegioRow" v-if="data.tipo_asistente!='' && 
-                            (data.tipo_asistente=='Aspirante' || data.tipo_asistente=='Docente' || data.tipo_asistente=='Psicoorientador')">
-                            <h5><br>Selecciona tu colegio:<br> <span class="subtitulo"> Puedes filtrar por ciudad/departamento o escribir una palabra clave<br></span></h5>
-                    
+                            (data.tipo_asistente=='Aspirante' || data.tipo_asistente=='Docente y/o psicoorientador')">
+                            
+                            <h5><br>Selecciona tu colegio:<br> 
+                              <span class="subtitulo"> Puedes filtrar por ciudad/departamento o escribir una palabra clave<br></span>
+                            </h5>
+                      
                             <div class="form-row col-12"> 
-                                <!-- Select de Departamento -->
-                                <select v-model="selectedDepartment" @change="filterCities" class="form-control select form-select border-top-0 border-left-0 border-bottom-0 border-right-1 rounded-1 text-dark mb-3 col-6">
-                                    <option value="">Filtrar por Departamento</option>
-                                    <option v-for="dep in departments" :key="dep.codigo" :value="dep.codigo">{{ dep.nombre }}</option>
-                                </select>
-                    
-                                <!-- Select de Ciudad filtrado por Departamento -->
-                                <select v-model="selectedCity" @change="filterColegios" class="form-control select form-select border-top-0 border-left-1 border-bottom-0 border-right-0 rounded-1 text-dark mb-3 col-6">
-                                    <option value="">Filtrar por Ciudad</option>
-                                    <option v-for="city in cities" :key="city" :value="city">{{ city }}</option>
-                                </select>
+                              <!-- Select de Departamento -->
+                              <select v-model="selectedDepartment" @change="filterCities" 
+                                  class="form-control select form-select border-top-0 border-left-0 border-bottom-0 border-right-1 rounded-1 text-dark mb-3 col-6">
+                                  <option value="">Filtrar por Departamento</option>
+                                  <option v-for="dep in departments" :key="dep.codigo" :value="dep.codigo">{{ dep.nombre }}</option>
+                              </select>
+                      
+                              <!-- Select de Ciudad filtrado por Departamento -->
+                              <select v-model="selectedCity" @change="filterColegios" 
+                                  class="form-control select form-select border-top-0 border-left-1 border-bottom-0 border-right-0 rounded-1 text-dark mb-3 col-6">
+                                  <option value="">Filtrar por Ciudad</option>
+                                  <option v-for="city in cities" :key="city" :value="city">{{ city }}</option>
+                              </select>
                             </div>
-                    
-                            <div class="form-row  col-12">
-                                <!-- Select con los colegios filtrados por Ciudad -->
-                                <input type="text" v-model="searchTerm" @input="filterColegios" placeholder="Filtrar por nombre o palabra clave" class="form-control border-top-0 border-left-0 border-bottom-0 border-right-0 rounded-1 mb-3" />
-                    
-                                <select id="00NJw0000041omr" v-model="data.colegio" @change="deleteInvalid('colegio')"
-                                    class="form-control select validates-as-required form-select border-top-0 border-left-0 border-right-0 rounded-1 text-dark mb-3 col-12"
-                                    name="00NJw0000041omr" :class="{ error: errors.colegio }" placeholder="Selecciona un colegio">
-                                    <option value="">Seleccionar Colegio</option>
-                                    <option v-for="colegio in filteredColegios" :key="colegio.ID" :value="colegio.PUJ_EXTERNALORGID__C">
-                                        {{ colegio.NAME }}
-                                    </option>
-                                </select>
-                                <div class="error_text" v-show="errors.colegio">Selecciona</div>                            
+                      
+                            <div class="form-row col-12">
+                              <!-- Input para buscar y mostrar el colegio seleccionado -->
+                              <input type="text" v-model="searchTerm" @input="filterColegios" 
+                                  placeholder="Filtrar por nombre o palabra clave" 
+                                  class="form-control border-top-0 border-left-0 border-bottom-0 border-right-0 rounded-1 mb-3" />
+                      
+                              <!-- Lista de colegios filtrados (oculta hasta que haya ciudad, departamento o búsqueda) -->
+                              <ul v-show="(filteredColegios.length > 0 && (selectedCity || selectedDepartment || searchTerm)) && !colegioSeleccionado" 
+                                  class="list-group" 
+                                  style="max-height: 200px; overflow-y: auto; margin-bottom: 5px; width:100%; font-size:14px;">
+                                <li v-for="(colegio, index) in filteredColegios.slice(0, 100000)" 
+                                    :key="colegio.ID" 
+                                    @click="selectColegio(colegio.PUJ_EXTERNALORGID__C, colegio.NAME)" 
+                                    class="list-group-item list-group-item-action">
+                                  {{ colegio.NAME }}
+                                </li>
+                              </ul>
+                              <input id="00NJw0000041omr" name="00NJw0000041omr" v-model="data.colegio">
+                              <div class="error_text" v-show="errors.colegio">Selecciona un colegio</div>
                             </div>
                         </div>
-                    </div>
+                      </div>
                     
 
 
@@ -332,7 +342,7 @@
                     <div class="form-row">
                         Origen de la Solicitud:<select id="00NJw000001J3Hl" name="00NJw000001J3Hl"
                             v-model="data.origen_sol" title="Origen de la Solicitud">
-                            <option selected value="expo_estudiante_col">Web to Lead</option>
+                            <option selected value="expo_aspirante">Web to Lead</option>
                         </select>
 
                         Fuente autorización datos personales:<select id="00N5G00000WmhvT" name="00N5G00000WmhvT"
@@ -511,6 +521,10 @@
                         this.data.nivelacademico = ""
                         this.data.facultad=""
                         this.data.programa=""
+                        this.data.colegio=""
+                        this.searchTerm = ""
+                        this.selectedDepartment = ""
+                        this.selectedCity = ""
                     } if (newAsis == 'Aspirante'){
                         this.data.nivelacademico = 'PREG'                  
                     }else{// if (newAsis == 'Docente' || newAsis == 'Psicoorientador' || oldAsis == 'Docente' || oldAsis == 'Psicoorientador' || newAsis == 'Acudiente' || newAsis == 'Psicoorientador' || oldAsis == 'Acudiente' || oldAsis == 'Psicoorientador' ){ 
@@ -602,8 +616,9 @@
                 /**
                  * Funcion para cargar las ubicaciones
                  **/
-                 getUbicaciones() {
+                getUbicaciones() {
                     axios.get('https://raw.githubusercontent.com/gesalas/W2lead_expojaveriana/main/Json/ubicaciones.json')
+                    //axios.get('https://www.javeriana.edu.co/recursosdb/1372208/10609114/ubicaciones.json/42eea925-0d5b-f9b9-e17d-fb7ca71a69ad')
                         .then((response) => {
                             this.ubicaciones = response.data;
 
@@ -651,27 +666,69 @@
                         .catch((error) => {
                             console.error('Error al cargar los colegios:', error);
                         });
-                },
-                filterCities() {
-                    const selectedDep = this.ubicaciones.COL.departamentos.find(dep => dep.codigo === this.selectedDepartment);
-                    if (selectedDep) {
-                        this.cities = selectedDep.ciudades.map(ciudad => ciudad.nombre).sort();
-                    } else {
-                        this.cities = [];
-                    }
-                    this.selectedCity = ''; // Resetear la ciudad seleccionada
-                    this.filterColegios(); // Actualizar la lista de colegios filtrados
-                },
-                filterColegios() {
-                    this.filteredColegios = this.colegios.filter(colegio => {
-                        const matchesCity = this.selectedCity ? colegio.SHIPPINGCITY === this.selectedCity : true;
-                        const matchesSearch = colegio.NAME.toLowerCase().includes(this.searchTerm.toLowerCase());
-                        return matchesCity && matchesSearch;
-                    }).sort((a, b) => a.NAME.localeCompare(b.NAME));
-                },
+                }, 
                 deleteInvalid(field) {
                     if (this.data[field]) {
                         this.errors[field] = false;
+                    }
+                },
+                selectColegio(externalId, nombreColegio) {
+                    this.data.colegio = externalId; // Asigna el valor del ID del colegio seleccionado
+                    this.searchTerm = nombreColegio; // Actualiza el campo de búsqueda con el nombre del colegio seleccionado
+                    this.colegioSeleccionado = true; // Marca que se ha seleccionado un colegio
+                    this.errors.colegio = false; // Limpia el error si es necesario
+                  },
+                
+                  // Método para filtrar ciudades según el departamento seleccionado
+                filterCities() {
+                    // Encuentra el departamento seleccionado
+                    const selectedDep = this.ubicaciones.COL.departamentos.find(dep => dep.codigo === this.selectedDepartment);
+                
+                    if (selectedDep) {
+                        // Filtra las ciudades que tienen colegios
+                        const ciudadesConColegios = new Set(this.colegios.map(colegio => colegio.SHIPPINGCITY));
+                
+                        // Solo muestra ciudades que pertenecen al departamento y tienen colegios
+                        this.cities = selectedDep.ciudades
+                            .map(ciudad => ciudad.nombre)
+                            .filter(ciudad => ciudadesConColegios.has(ciudad))
+                            .sort(); // Ordena las ciudades alfabéticamente
+                
+                        // Selecciona automáticamente la primera ciudad si hay ciudades disponibles
+                        if (this.cities.length > 0) {
+                            this.selectedCity = this.cities[0]; // Selecciona la primera ciudad
+                        } else {
+                            this.selectedCity = ''; // Resetea la ciudad si no hay disponibles
+                        }
+                    } else {
+                        this.cities = []; // Si no hay departamento seleccionado, resetea las ciudades
+                        this.selectedCity = '';
+                    }
+                
+                    // Resetear el colegio seleccionado y limpiar la lista de colegios filtrados
+                    this.data.colegio = '';
+                    this.filteredColegios = [];
+                    this.searchTerm = ''; // Limpia el campo de búsqueda
+                    this.filterColegios(); // Actualiza la lista de colegios
+                },                
+                
+                  // Método para filtrar colegios según la ciudad seleccionada o el término de búsqueda
+                filterColegios() {
+                    // Si el campo de búsqueda está vacío, resetea el colegio seleccionado
+                    if (!this.searchTerm) {
+                        this.data.colegio = '';
+                        this.colegioSeleccionado = false; // Indica que no hay colegio seleccionado
+                    }
+                
+                    // Filtra los colegios según la ciudad seleccionada y el término de búsqueda
+                    this.filteredColegios = this.colegios.filter(colegio => {
+                        const matchesCity = this.selectedCity ? colegio.SHIPPINGCITY === this.selectedCity : true; // Coincide con la ciudad seleccionada
+                        const matchesSearch = colegio.NAME.toLowerCase().includes(this.searchTerm.toLowerCase()); // Coincide con el término de búsqueda
+                        return matchesCity && matchesSearch;
+                    }).sort((a, b) => a.NAME.localeCompare(b.NAME)); // Ordena los colegios alfabéticamente
+                
+                    if (this.filteredColegios.length === 0) {
+                        this.data.colegio = '';
                     }
                 },
                 /**
@@ -775,7 +832,7 @@
                             } 
                             break;                           
                             case "colegio":
-                                if((this.data[element]=='' || this.data[element] == null) && (this.data.tipo_asistente=='Aspirante' || this.data.tipo_asistente=='Docente' || this.data.tipo_asistente=='Psicoorientador')){
+                                if((this.data[element]=='' || this.data[element] == null) && (this.data.tipo_asistente=='Aspirante' || this.data.tipo_asistente=='Docente y/o psicoorientador')){
                                     valid = false;
                                     this.errors[element] = true
                                 }
