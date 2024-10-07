@@ -276,7 +276,7 @@
                                   {{ colegio.NAME }}
                                 </li>
                               </ul>
-                              
+                              <input id="00NO4000005begL" name="00NO4000005begL" v-model="data.colegio">
                               <div class="error_text" v-show="errors.colegio">Selecciona un colegio</div>
                             </div>
                         </div>
@@ -683,7 +683,7 @@
                   },
                 
                   // Método para filtrar ciudades según el departamento seleccionado
-                  filterCities() {
+                filterCities() {
                     // Encuentra el departamento seleccionado
                     const selectedDep = this.ubicaciones.COL.departamentos.find(dep => dep.codigo === this.selectedDepartment);
                 
@@ -716,7 +716,7 @@
                 },                
                 
                   // Método para filtrar colegios según la ciudad seleccionada o el término de búsqueda
-                  filterColegios() {
+                filterColegios() {
                     // Si el campo de búsqueda está vacío, resetea el colegio seleccionado
                     if (!this.searchTerm) {
                         this.data.colegio = '';
@@ -730,7 +730,6 @@
                         return matchesCity && matchesSearch;
                     }).sort((a, b) => a.NAME.localeCompare(b.NAME)); // Ordena los colegios alfabéticamente
                 
-                    // Resetea el colegio seleccionado si no hay colegios en la lista filtrada
                     if (this.filteredColegios.length === 0) {
                         this.data.colegio = '';
                     }
