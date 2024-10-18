@@ -39,6 +39,7 @@
         .error_text{
             color: #f88d00 !important;
             font-size: 12px !important;
+            margin-top: 2px;
         }
     </style>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -282,13 +283,13 @@
                       
 
                 <!--Facultad-->
-                <div class="form-row col-12" v-if="data.nivelacademico!=''&& 
+                <div style="margin-top: 10px;" class="form-row col-12" v-if="data.nivelacademico!=''&& 
                 (data.tipo_asistente=='Aspirante')">
                 <h5 style="text-align: center;"><br>¿En cuál programa estás interesado?<br></h5>
                     <div class="col-12">
                         <span class="wpcf7-form-control-wrap">
                             <select id="Facultad" v-model="data.facultad" v-on:change="deleteInvalid('facultad')"
-                                class="form-control select validates-as-required form-select border-top-0 border-left-0 border-right-0 rounded-1 text-dark  mb-3"
+                                class="form-control select validates-as-required form-select border-top-0 border-left-0 border-right-0 rounded-1 text-dark"
                                 name="Facultad" :class="{ error: errors.facultad }">
                                 <option value="" >*Selecciona la facultad</option>
                                 <option v-for="item in programas[data.nivelacademico]"
@@ -302,11 +303,11 @@
                 </div>
 
                 <!--Programa-->
-                <div class="form-row col-12" v-if="data.facultad!=''">
+                <div class="form-row col-12" v-if="data.facultad!=''" style="margin-top: 10px;">
                     <div class="col-12">
                         <span class="wpcf7-form-control-wrap">
                             <select id="00N7j000002BI3p" v-model="data.programa" v-on:change="deleteInvalid('programa')"
-                                class="form-control select validates-as-required form-select rounded-1 text-dark mb-3"
+                                class="form-control select validates-as-required form-select border-top-0 border-left-0 border-right-0 rounded-1 text-dark"
                                 name="00N7j000002BI3p" :class="{ error: errors.programa }">
                                 <option value="">*Selecciona el programa</option> 
                                 <option value="NOAP" style="display: none;">NOAP</option>                               
@@ -321,12 +322,12 @@
                 </div>
 
                 <!--Periodo de Ingreso-->
-                <div class="form-row col-12" v-if="data.facultad!=''">
+                <div class="form-row col-12" v-if="data.facultad!=''" style="margin-top: 10px;">
                     <div class="col-12 mb-3">
                         <span class="wpcf7-form-control-wrap">
                             <select id="00N7j000002BY2L" v-model="data.periodo_esperado" maxlength="20" v-on:change="deleteInvalid('periodo_esperado')"
                                 name="00N7j000002BY2L"
-                                class="form-control select validates-as-required form-select rounded-1 text-dark mb-3"
+                                class="form-control select validates-as-required form-select border-top-0 border-left-0 border-right-0 rounded-1 text-dark"
                                 :class="{ error: errors.periodo_esperado }">
                                 <option value="">*Periodo esperado de Ingreso</option>
                                 <option v-for="(index, item) in periodoSel" v-bind:value="index">{{
