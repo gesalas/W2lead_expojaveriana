@@ -339,6 +339,27 @@
                     </div>
                 </div>
 
+                <!-- día de asistencia -->
+                <div class="form-row col-12" v-if="data.tipo_asistente!=''">
+                    <h5 style="text-align: center;"><br>¿Qué día Asistirás?<br></h5>
+                    <div class="form-group col-md-12 col-sm-12" id="diacontainer"> 
+                        <select v-model="data.dia" v-on:change="deleteInvalid('dia')"
+                            class="form-control border-top-0 border-left-0 border-right-0 rounded-1"
+                            id="diaasistencia" name="diasistencia" 
+                            :class="{ error: errors.dia }">
+                            <option value="">*Día de asistencia</option>
+                            <option value="martes, 25 de febrero">Martes, 25 de febrero</option>
+                            <option value="miércoles, 26 de febrero">Miércoles, 26 de febrero</option>
+                            <option value="jueves, 27 de febrero">Jueves, 27 de febrero</option>
+                            <option value="viernes, 28 de febrero">Viernes, 28 de febrero</option>
+                            <option value="sábado, 1 de marzo">Sábado, 1 de marzo</option>
+                        </select>
+                        <div class="error_text" v-show="errors.dia">
+                            Selecciona
+                        </div>
+                    </div>
+                </div>
+
                 <!-- para ocultar-->
                 <div style="display: none;">
                     <div class="form-row">
@@ -401,7 +422,7 @@
                 <div class="form-row col-12 mb-3">
                     <div class="col-12">
                         <button class="btn btn-warning w-100 py-2 text-azul fw-bold" type="submit"
-                            v-bind:disabled="formInValid">Inscríbete
+                            v-bind:disabled="formInValid || isSubmitting">Inscríbete
                             ahora</button>
                     </div>
                 </div>
@@ -436,6 +457,7 @@
                     filteredColegios: [], // Colegios filtrados
                     cities: [], // Lista de ciudades
                     formInValid: true,
+                    isSubmitting: false,
                     data: {
                         first_name: "",
                         last_name: "",
@@ -453,6 +475,7 @@
                         programa: "NOAP",
                         colegio: "",
                         periodo_esperado: "",
+                        dia:"",
                         origen_sol: "expo_estudiante_col",
                         fuenteAutoriza: "Landing Expojaveriana",
                         lead: "Landing Pages",
@@ -481,6 +504,7 @@
                         programa: false,
                         colegio: false,
                         periodo_esperado: false,
+                        dia:false,
                         origen_sol: false,
                         fuenteAutoriza: false,
                         lead: false,
@@ -526,6 +550,7 @@
                         this.searchTerm = ""
                         this.selectedDepartment = ""
                         this.selectedCity = ""
+                        this.data.dia = ""
                     } if (newAsis == 'Aspirante'){
                         this.data.nivelacademico = 'PREG'                 
                     } else{// if (newAsis == 'Docente y/o psicoorientador'){ 
@@ -566,6 +591,7 @@
                         programa: "NOAP",
                         colegio: "",
                         periodo_esperado: "", 
+                        dia: "",
                         origen_sol: "expo_estudiante_col",
                         fuenteAutoriza: "Landing Expojaveriana",
                         lead: "Landing Pages",
@@ -791,6 +817,7 @@
                             case "pais":
                             case "prefijoCel": 
                             case "tipo_asistente":
+                            case "dia":
                                 if (this.data[element] == "" || this.data[element] == null) {
                                     valid = false;
                                     this.errors[element] = true
@@ -858,7 +885,8 @@
                         e.preventDefault();
                         return false;
                     }else{
-                        this.$refs.form_SF.submit()
+                        this.isSubmitting = true;
+                        this.$refs.form_SF.submit();
                     }
                     
                 },
