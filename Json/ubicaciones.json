@@ -1489,6 +1489,12 @@
         "ARE": {
                 "nombre": "Emiratos Árabes Unidos"
         },
+        "SVK": {
+                "nombre": "Eslovaquia"
+        },
+        "SVN": {
+                "nombre": "Eslovenia"
+        },
         "ESP": {
                 "nombre": "España"
         },
@@ -1653,7 +1659,7 @@
         },  
         "MHL": {
                 "nombre": "Islas Marshall"
-        },
+        }, 
         "SLB": {
                 "nombre": "Islas Salomón"
         },
@@ -1956,12 +1962,6 @@
         },
         "SXM": {
                 "nombre": "Sint Maarten (parte holandesa)"
-        },
-        "SVK": {
-                "nombre": "Eslovaquia"
-        },
-        "SVN": {
-                "nombre": "Eslovenia"
         },
         "SOM": {
                 "nombre": "Somalia"
