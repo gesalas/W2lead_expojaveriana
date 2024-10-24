@@ -1324,9 +1324,6 @@
         "DZA": {
                 "nombre": "Argelia"
         },
-        "ASM": {
-                "nombre": "Samoa Americana"
-        },
         "AND": {
                 "nombre": "Andorra"
         },
@@ -1341,6 +1338,9 @@
         },
         "ATG": {
                 "nombre": "Antigua y Barbuda"
+        },
+        "ANT": {
+                "nombre": "Antillas Neerlandesas"
         },
         "ARG": {
                 "nombre": "Argentina"
@@ -1402,14 +1402,8 @@
         "BWA": {
                 "nombre": "Botsuana"
         },
-        "BVT": {
-                "nombre": "Isla Bouvet"
-        },
         "BRA": {
                 "nombre": "Brasil"
-        },
-        "IOT": {
-                "nombre": "Territorio Británico del Océano Índico"
         },
         "BRN": {
                 "nombre": "Brunéi Darussalam"
@@ -1435,12 +1429,6 @@
         "CPV": {
                 "nombre": "Cabo Verde"
         },
-        "CYM": {
-                "nombre": "Islas Caimán"
-        },
-        "CAF": {
-                "nombre": "República Centroafricana Central"
-        },
         "TCD": {
                 "nombre": "Chad"
         },
@@ -1450,11 +1438,8 @@
         "CHN": {
                 "nombre": "China"
         },
-        "CXR": {
-                "nombre": "Isla de Navidad"
-        },
-        "CCK": {
-                "nombre": "Islas Cocos (Keeling)"
+        "VAT": {
+                "nombre": "Ciudad del Vaticano"
         },
         "COM": {
                 "nombre": "Comoras"
@@ -1462,11 +1447,11 @@
         "COG": {
                 "nombre": "Congo"
         },
-        "COD": {
-                "nombre": "República Democrática del Congo"
+        "PRK": {
+                "nombre": "Corea del Norte"
         },
-        "COK": {
-                "nombre": "Islas Cook"
+        "KOR": {
+                "nombre": "Corea del Sur"
         },
         "CRI": {
                 "nombre": "Costa Rica"
@@ -1486,23 +1471,11 @@
         "CYP": {
                 "nombre": "Chipre"
         },
-        "CZE": {
-                "nombre": "República Checa"
-        },
         "DNK": {
                 "nombre": "Dinamarca"
         },
-        "DJI": {
-                "nombre": "Yibuti"
-        },
         "DMA": {
                 "nombre": "Dominica"
-        },
-        "DOM": {
-                "nombre": "República Dominicana"
-        },
-        "TLS": {
-                "nombre": "Timor Oriental"
         },
         "ECU": {
                 "nombre": "Ecuador"
@@ -1512,6 +1485,15 @@
         },
         "SLV": {
                 "nombre": "El Salvador"
+        },
+        "ARE": {
+                "nombre": "Emiratos Árabes Unidos"
+        },
+        "ESP": {
+                "nombre": "España"
+        },
+        "FSM": {
+                "nombre": "Estados Federados de Micronesia"
         },
         "ENG": {
                 "nombre": "Inglaterra"
@@ -1525,17 +1507,14 @@
         "ESC": {
                 "nombre": "Escocia"
         },
+        "USA": {
+                "nombre": "Estados Unidos"
+        },
         "EST": {
                 "nombre": "Estonia"
         },
         "ETH": {
                 "nombre": "Etiopía"
-        },
-        "FLK": {
-                "nombre": "Islas Malvinas (Falkland)"
-        },
-        "FRO": {
-                "nombre": "Islas Feroe"
         },
         "FJI": {
                 "nombre": "Fiyi"
@@ -1543,20 +1522,14 @@
         "FIN": {
                 "nombre": "Finlandia"
         },
-        "MKD": {
-                "nombre": "República de Macedonia del Norte"
+        "PHL": {
+                "nombre": "Filipinas"
         },
         "FRA": {
                 "nombre": "Francia"
         },
         "GUF": {
                 "nombre": "Guayana Francesa"
-        },
-        "PYF": {
-                "nombre": "Polinesia Francesa"
-        },
-        "ATF": {
-                "nombre": "Territorios Australes Franceses"
         },
         "GAB": {
                 "nombre": "Gabón"
@@ -1608,16 +1581,7 @@
         },
         "HTI": {
                 "nombre": "Haití"
-        },
-        "HMD": {
-                "nombre": "Islas Heard y McDonald"
-        },
-        "HOL": {
-                "nombre": "Países Bajos (Holanda)"
-        },
-        "VAT": {
-                "nombre": "Ciudad del Vaticano"
-        },
+        }, 
         "HND": {
                 "nombre": "Honduras"
         },
@@ -1648,11 +1612,59 @@
         "IRL": {
                 "nombre": "Irlanda"
         },
-        "ILN": {
+        "NIR": {
                 "nombre": "Irlanda del Norte"
+        },    
+        "BVT": {
+                "nombre": "Isla Bouvet"
         },
         "IMN": {
                 "nombre": "Isla de Man"
+        },         
+        "CXR": {
+                "nombre": "Isla de Navidad"
+        },     
+        "NFK": {
+                "nombre": "Isla Norfolk"
+        },   
+        "CYM": {
+                "nombre": "Islas Caimán"
+        },
+        "CCK": {
+                "nombre": "Islas Cocos (Keeling)"
+        }, 
+        "COK": {
+                "nombre": "Islas Cook"
+        },
+        "FRO": {
+                "nombre": "Islas Feroe"
+        },
+        "SGS": {
+                "nombre": "Islas Georgias del Sur y Sandwich del Sur"
+        },
+        "HMD": {
+                "nombre": "Islas Heard y McDonald"
+        },     
+        "FLK": {
+                "nombre": "Islas Malvinas (Falkland)"
+        },  
+        "MNP": {
+                "nombre": "Islas Marianas del Norte"
+        },  
+        "MHL": {
+                "nombre": "Islas Marshall"
+        },
+        "SLB": {
+                "nombre": "Islas Salomón"
+        },
+        "UMI": {
+                "nombre": "Islas ultramarinas de EE.UU"
+        },
+        "VGB": {
+                "nombre": "Islas Vírgenes (Británicas)"
+        },
+        "VIR": {
+                "nombre": "Islas Vírgenes (EE.UU.)"
         },
         "ISR": {
                 "nombre": "Israel"
@@ -1662,6 +1674,9 @@
         },
         "JAM": {
                 "nombre": "Jamaica"
+        },
+        "LBY": {
+                "nombre": "Jamahiriya Árabe Libia"
         },
         "JPN": {
                 "nombre": "Japón"
@@ -1681,12 +1696,6 @@
         "KIR": {
                 "nombre": "Kiribati"
         },
-        "PRK": {
-                "nombre": "Corea del Norte"
-        },
-        "KOR": {
-                "nombre": "Corea del Sur"
-        },
         "KOS": {
                 "nombre": "Kosovo"
         },
@@ -1695,9 +1704,6 @@
         },
         "KGZ": {
                 "nombre": "Kirguistán"
-        },
-        "LAO": {
-                "nombre": "República Democrática Popular Lao"
         },
         "LVA": {
                 "nombre": "Letonia"
@@ -1710,9 +1716,6 @@
         },
         "LBR": {
                 "nombre": "Liberia"
-        },
-        "LBY": {
-                "nombre": "Jamahiriya Árabe Libia"
         },
         "LIE": {
                 "nombre": "Liechtenstein"
@@ -1744,9 +1747,6 @@
         "MLT": {
                 "nombre": "Malta"
         },
-        "MHL": {
-                "nombre": "Islas Marshall"
-        },
         "MTQ": {
                 "nombre": "Martinica"
         },
@@ -1761,12 +1761,6 @@
         },
         "MEX": {
                 "nombre": "México"
-        },
-        "FSM": {
-                "nombre": "Estados Federados de Micronesia"
-        },
-        "MDA": {
-                "nombre": "República de Moldavia"
         },
         "MCO": {
                 "nombre": "Mónaco"
@@ -1798,9 +1792,6 @@
         "NLD": {
                 "nombre": "Países Bajos"
         },
-        "ANT": {
-                "nombre": "Antillas Neerlandesas"
-        },
         "NCL": {
                 "nombre": "Nueva Caledonia"
         },
@@ -1819,20 +1810,14 @@
         "NIU": {
                 "nombre": "Niue"
         },
-        "NFK": {
-                "nombre": "Isla Norfolk"
-        },
-        "NIR": {
-                "nombre": "Irlanda del Norte"
-        },
-        "MNP": {
-                "nombre": "Islas Marianas del Norte"
-        },
         "NOR": {
                 "nombre": "Noruega"
         },
         "OMN": {
                 "nombre": "Omán"
+        },
+        "HOL": {
+                "nombre": "Países Bajos (Holanda)"
         },
         "PAK": {
                 "nombre": "Pakistán"
@@ -1855,11 +1840,11 @@
         "PER": {
                 "nombre": "Perú"
         },
-        "PHL": {
-                "nombre": "Filipinas"
-        },
         "PCN": {
                 "nombre": "Pitcairn"
+        },
+        "PYF": {
+                "nombre": "Polinesia Francesa"
         },
         "POL": {
                 "nombre": "Polonia"
@@ -1873,11 +1858,41 @@
         "QAT": {
                 "nombre": "Qatar"
         },
+        "GBR": {
+                "nombre": "Reino Unido"
+        },
+        "SYR": {
+                "nombre": "República Árabe Siria"
+        },
+        "CAF": {
+                "nombre": "República Centroafricana"
+        },
+        "CZE": {
+                "nombre": "República Checa"
+        },
+        "COD": {
+                "nombre": "República Democrática del Congo"
+        },
+        "LAO": {
+                "nombre": "República Democrática Popular Lao"
+        },
+        "MKD": {
+                "nombre": "República de Macedonia del Norte"
+        },
+        "MDA": {
+                "nombre": "República de Moldavia"
+        },
         "MNE": {
                 "nombre": "República de Montenegro"
         },
         "SRB": {
                 "nombre": "República de Serbia"
+        },
+        "DOM": {
+                "nombre": "República Dominicana"
+        },
+        "TZA": {
+                "nombre": "República Unida de Tanzania"
         },
         "REU": {
                 "nombre": "Reunión"
@@ -1893,6 +1908,9 @@
         },
         "RWA": {
                 "nombre": "Ruanda"
+        },
+        "ASM": {
+                "nombre": "Samoa Americana"
         },
         "BLM": {
                 "nombre": "San Bartolomé"
@@ -1924,9 +1942,6 @@
         "SAU": {
                 "nombre": "Arabia Saudita"
         },
-        "SCT": {
-                "nombre": "Escocia"
-        },
         "SEN": {
                 "nombre": "Senegal"
         },
@@ -1948,9 +1963,6 @@
         "SVN": {
                 "nombre": "Eslovenia"
         },
-        "SLB": {
-                "nombre": "Islas Salomón"
-        },
         "SOM": {
                 "nombre": "Somalia"
         },
@@ -1960,17 +1972,11 @@
         "SSD": {
                 "nombre": "Sudán del Sur"
         },
-        "ESP": {
-                "nombre": "España"
-        },
         "LKA": {
                 "nombre": "Sri Lanka"
         },
         "VCT": {
                 "nombre": "San Vicente y las Granadinas"
-        },
-        "SGS": {
-                "nombre": "Islas Georgias del Sur y Sandwich del Sur"
         },
         "SDN": {
                 "nombre": "Sudán"
@@ -1990,20 +1996,23 @@
         "CHE": {
                 "nombre": "Suiza"
         },
-        "SYR": {
-                "nombre": "República Árabe Siria"
-        },
         "TWN": {
                 "nombre": "Taiwán"
         },
         "TJK": {
                 "nombre": "Tayikistan"
         },
-        "TZA": {
-                "nombre": "República Unida de Tanzania"
-        },
         "THA": {
                 "nombre": "Tailandia"
+        },
+        "ATF": {
+                "nombre": "Territorios Australes Franceses"
+        },
+        "IOT": {
+                "nombre": "Territorio Británico del Océano Índico"
+        },
+        "TLS": {
+                "nombre": "Timor Oriental"
         },
         "TGO": {
                 "nombre": "Togo"
@@ -2038,20 +2047,8 @@
         "UKR": {
                 "nombre": "Ucrania"
         },
-        "ARE": {
-                "nombre": "Emiratos Árabes Unidos"
-        },
-        "GBR": {
-                "nombre": "Reino Unido"
-        },
-        "USA": {
-                "nombre": "Estados Unidos"
-        },
         "URY": {
                 "nombre": "Uruguay"
-        },
-        "UMI": {
-                "nombre": "Islas ultramarinas de EE.UU"
         },
         "UZB": {
                 "nombre": "Uzbekistán"
@@ -2065,15 +2062,6 @@
         "VNM": {
                 "nombre": "VietNam"
         },
-        "VGB": {
-                "nombre": "Islas Vírgenes (Británicas)"
-        },
-        "VIR": {
-                "nombre": "Islas Vírgenes (EE.UU.)"
-        },
-        "WAL": {
-                "nombre": "Gales"
-        },
         "WLF": {
                 "nombre": "Wallis y Futuna"
         },
@@ -2082,6 +2070,9 @@
         },
         "YEM": {
                 "nombre": "Yemen"
+        },
+        "DJI": {
+                "nombre": "Yibuti"
         },
         "YUG": {
                 "nombre": "Yugoslavia"
