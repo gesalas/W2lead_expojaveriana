@@ -155,7 +155,7 @@
                             id="00N5G00000WmhvJ" name="00N5G00000WmhvJ" required :class="{ error: errors.pais }">
                             <option value="">*Pais de residencia</option>
                             <option v-for="(item, index) in ubicaciones" v-bind:value="index"
-                                v-bind:style="(index=='COL') ? 'font-weight: 700;' : '' ">{{ item.nombre }}</option>
+                                v-bind:style="(index=='COL') ? 'font-weight: 700;background-color:aliceblue;' : '' ">{{ item.nombre }}</option>
                         </select>
                         <div class="error_text" v-show="errors.pais">
                             Selecciona

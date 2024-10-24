@@ -1321,9 +1321,6 @@
         "DEU": {
                 "nombre": "Alemania"
         },
-        "DZA": {
-                "nombre": "Argelia"
-        },
         "AND": {
                 "nombre": "Andorra"
         },
@@ -1344,6 +1341,9 @@
         },
         "SAU": {
                 "nombre": "Arabia Saudita"
+        },
+        "DZA": {
+                "nombre": "Argelia"
         },
         "ARG": {
                 "nombre": "Argentina"
@@ -1504,9 +1504,6 @@
         "FSM": {
                 "nombre": "Estados Federados de Micronesia"
         },
-        "ENG": {
-                "nombre": "Inglaterra"
-        },
         "GNQ": {
                 "nombre": "Guinea Ecuatorial"
         },
@@ -1600,9 +1597,6 @@
         "HUN": {
                 "nombre": "Hungría"
         },
-        "ISL": {
-                "nombre": "Islandia"
-        },
         "IND": {
                 "nombre": "India"
         },
@@ -1623,7 +1617,10 @@
         },
         "NIR": {
                 "nombre": "Irlanda del Norte"
-        },    
+        }, 
+        "ISL": {
+                "nombre": "Islandia"
+        },   
         "BVT": {
                 "nombre": "Isla Bouvet"
         },
@@ -1800,9 +1797,6 @@
         },
         "NPL": {
                 "nombre": "Nepal"
-        },
-        "NLD": {
-                "nombre": "Países Bajos"
         },
         "NCL": {
                 "nombre": "Nueva Caledonia"
