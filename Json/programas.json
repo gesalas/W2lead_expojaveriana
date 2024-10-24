@@ -99,6 +99,10 @@
           "Nombre": "Finanzas"
         },
         {
+          "Codigo": "NINTR",
+          "Nombre": "Negocios Internacionales"
+        },
+        {
           "Codigo": "PCPCE",
           "Nombre": "No s\u00e9 qu\u00e9 estudiar"
         }
