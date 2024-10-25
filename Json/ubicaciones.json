@@ -33,12 +33,7 @@
                         {
                                 "nombre": "Antioquia",
                                 "codigo": "ANT",
-                                "ciudades": [{ "nombre": "Vigía del Fuerte", "codigo": "5873"},
-                                { "nombre": "Yalí", "codigo": "5885"},
-                                { "nombre": "Yarumal", "codigo": "5887"},
-                                { "nombre": "Yolombo", "codigo": "5890"},
-                                { "nombre": "Yondó", "codigo": "5893"},
-                                { "nombre": "Zaragoza", "codigo": "5895"},
+                                "ciudades": [
                                 { "nombre": "Carepa", "codigo": "5147"},
                                 { "nombre": "La Pintada", "codigo": "5390"},
                                 { "nombre": "Abejorral", "codigo": "5002"},
@@ -158,7 +153,13 @@
                                 { "nombre": "Valdivia", "codigo": "5854"},
                                 { "nombre": "Valparaíso", "codigo": "5856"},
                                 { "nombre": "Vegachi", "codigo": "5858"},
-                                { "nombre": "Venecia", "codigo": "5861"}]
+                                { "nombre": "Venecia", "codigo": "5861"},
+                                { "nombre": "Vigía del Fuerte", "codigo": "5873"},
+                                { "nombre": "Yalí", "codigo": "5885"},
+                                { "nombre": "Yarumal", "codigo": "5887"},
+                                { "nombre": "Yolombo", "codigo": "5890"},
+                                { "nombre": "Yondó", "codigo": "5893"},
+                                { "nombre": "Zaragoza", "codigo": "5895"}]
                         },
                         {
                                 "nombre": "Atlántico",
