@@ -202,6 +202,8 @@
                                 class="form-control select validates-as-required form-select border-top-0 border-left-0 border-right-0 rounded-1 text-dark "
                                 name="00NJw000001J3g6" id="00NJw000001J3g6" required
                                 :class="{ error: errors.tipo_asistente }">
+                                <option value="">*Tipo de asistente</option>
+                                <option value="Aspirante">Aspirante</option>
                                 <option value="Padre de familia y/o acudiente">Padre de familia y/o acudiente</option>
                             </select>
                             <div class="error_text" v-show="errors.tipo_asistente">
@@ -342,8 +344,7 @@
                         <select v-model="data.dia" v-on:change="deleteInvalid('dia')"
                             class="form-control border-top-0 border-left-0 border-right-0 rounded-1"
                             id="00NcT000000A26z" name="00NcT000000A26z" 
-                            :class="{ error: errors.dia }">
-                            
+                            :class="{ error: errors.dia }">                            
                             <option value="sábado, 1 de marzo">Sábado, 1 de marzo</option>
                         </select>
                         <div class="error_text" v-show="errors.dia">
@@ -461,7 +462,7 @@
                         pais: "",
                         departamento: "",
                         ciudad: "",
-                        tipo_asistente: "Padre de familia y/o acudiente",
+                        tipo_asistente: "",
                         nivelacademico: "",
                         facultad: "",
                         programa: "NOAP",
@@ -542,7 +543,6 @@
                         this.searchTerm = ""
                         this.selectedDepartment = ""
                         this.selectedCity = ""
-                        this.data.dia = ""
                     } if (newAsis == 'Aspirante'){
                         this.data.nivelacademico = 'PREG'                 
                     } else{// if (newAsis == 'Docente y/o psicoorientador'){ 
@@ -577,7 +577,7 @@
                         pais: "",
                         departamento: "",
                         ciudad: "",
-                        tipo_asistente: "Padre de familia y/o acudiente",
+                        tipo_asistente: "",
                         nivelacademico: "",
                         facultad: "",
                         programa: "NOAP",
