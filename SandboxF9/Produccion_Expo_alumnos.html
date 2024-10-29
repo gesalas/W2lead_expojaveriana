@@ -272,7 +272,7 @@
                                   {{ colegio.NAME }}
                                 </li>
                               </ul>
-                              <input id="00NJw0000041omr" name="00NJw0000041omr" v-model="data.colegio">
+                              <input style="display:none;" id="00NJw0000041omr" name="00NJw0000041omr" v-model="data.colegio">
                               <div class="error_text" v-show="errors.colegio">Selecciona un colegio</div>
                             </div>
                         </div>
@@ -339,11 +339,11 @@
 
                 <!-- día de asistencia -->
                 <div class="form-row col-12" v-if="data.tipo_asistente!=''">
-                    <h5 style="text-align: center;"><br>¿Qué día Asistirás?<br></h5>
-                    <div class="form-group col-md-12 col-sm-12" id="diacontainer"> 
+                    <h5 style="text-align: center; margin-bottom:5px !important;"><br>¿Qué día Asistirás?<br></h5>
+                    <div style="margin-top: 3px !important;" class="form-group col-md-12 col-sm-12" id="diacontainer"> 
                         <select v-model="data.dia" v-on:change="deleteInvalid('dia')"
                             class="form-control border-top-0 border-left-0 border-right-0 rounded-1"
-                            id="00NcT000000A26z" name="00NcT000000A26z" 
+                            id="00NJw000004iuIj" name="00NJw000004iuIj" 
                             :class="{ error: errors.dia }">
                             <option value="">*Día de asistencia</option>
                             <option value="martes, 25 de febrero">Martes, 25 de febrero</option>

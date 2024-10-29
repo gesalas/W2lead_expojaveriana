@@ -341,10 +341,10 @@
                 <!-- día de asistencia -->
                 <div class="form-row col-12" v-if="data.tipo_asistente!=''">
                     <h5 style="text-align: center;"><br>¿Qué día Asistirás?<br></h5>
-                    <div class="form-group col-md-12 col-sm-12" id="diacontainer"> 
+                    <div style="margin-top: 3px !important;" class="form-group col-md-12 col-sm-12" id="diacontainer"> 
                         <select v-model="data.dia" v-on:change="deleteInvalid('dia')"
                             class="form-control border-top-0 border-left-0 border-right-0 rounded-1"
-                            id="00NcT000000A26z" name="00NcT000000A26z" 
+                            id="00NJw000004iuIj" name="00NJw000004iuIj" 
                             :class="{ error: errors.dia }">
                             <option value="">*Día de asistencia</option>
                             <option v-if="data.tipo_asistente!='' && 
