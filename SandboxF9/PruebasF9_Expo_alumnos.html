@@ -438,6 +438,24 @@
 
     <!-- SE IMPLEMENTA VUE -->
     <script>
+        const button = document.querySelector('.btn.btn-warning');
+
+if (button) {
+  button.addEventListener('click', function(event) {
+    // Si el botón ya está deshabilitado, no hagas nada
+    if (button.disabled) return;
+
+    // Desactiva el botón
+    button.disabled = true;
+
+    // Vuelve a habilitar el botón después de 2 segundos (2000 ms)
+    setTimeout(function() {
+      button.disabled = false;
+    }, 2000);
+  });
+}
+ 
+         
 
         const { createApp } = Vue
 
